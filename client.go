@@ -13,7 +13,7 @@ import (
 var display_chan = make(chan string, 5)
 
 func main() {
-	server_url := ""
+	server_url := "http://localhost:8080"
 	go func() {
 		for text_to_print := range display_chan {
 			fmt.Println(text_to_print)
@@ -51,4 +51,5 @@ func main() {
 		full_message := "[" + user_name + "]: " + message
 		http.Post(server_url, "text/plain", strings.NewReader(full_message))
 	}
+
 }
